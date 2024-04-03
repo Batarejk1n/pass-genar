@@ -3,6 +3,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <fstream>
+#include <clocale>
 
 using std::cout;
 using std::cin;
@@ -75,6 +76,7 @@ private:
 
 int main()
 {
+    setlocale(LC_ALL, "Russian");
     srand(time(NULL));
     PassGen * pass = new PassGen;
     pass->displayMessage();
