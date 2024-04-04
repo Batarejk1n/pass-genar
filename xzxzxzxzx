@@ -1,0 +1,40 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+#include <clocale>
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+
+    const int size = 10;
+    int numbers[size];
+    srand(time(0)); // Инициализируем генератор случайных чисел
+
+    // Заполняем массив случайными числами в интервале от -10 до 10
+    for (int i = 0; i < size; i++) {
+        numbers[i] = rand() % 21 - 10;
+    }
+
+    // Находим максимальный и минимальный элементы массива
+    int max = numbers[0];
+    int min = numbers[0];
+    for (int i = 1; i < size; i++) {
+        if (numbers[i] > max) {
+            max = numbers[i];
+        }
+        if (numbers[i] < min) {
+            min = numbers[i];
+        }
+    }
+
+    // Выводим массив и найденные элементы на экран
+    std::cout << "Массив из 10 чисел от -10 до 10:\n";
+    for (int i = 0; i < size; i++) {
+        std::cout << numbers[i] << " ";
+    }
+    std::cout << "\n";
+    std::cout << "Максимальный элемент: " << max << "\n";
+    std::cout << "Минимальный элемент: " << min << "\n";
+
+    return 0;
+}
