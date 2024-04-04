@@ -1,0 +1,38 @@
+#include <iostream>
+#include <clocale>
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+    const int size = 10;
+    int numbers[size];
+    srand(time(0)); // Инициализируем генератор случайных чисел
+
+    // Заполняем массив случайными числами в интервале от -10 до 10
+    for (int i = 0; i < size; i++) {
+        numbers[i] = rand() % 21 - 10;
+    }
+
+
+    // Проверка на возрастающую последовательность
+    bool isIncreasing = true;
+    for (int i = 1; i < size; i++) {
+        if (numbers[i] <= numbers[i - 1]) {
+            isIncreasing = false;
+            break;
+        }
+    }
+    // Выводим массив и найденные элементы на экран
+    std::cout << "Массив из 10 чисел от -10 до 10:\n";
+    for (int i = 0; i < size; i++) {
+        std::cout << numbers[i] << " ";
+    }
+    // Вывод результата
+    if (isIncreasing) {
+        std::cout << "Элементы массива образуют возрастающую последовательность.\n";
+    }
+    else {
+        std::cout << "Элементы массива не образуют возрастающую последовательность.\n";
+    }
+
+    return 0;
+}
